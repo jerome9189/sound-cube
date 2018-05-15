@@ -20,11 +20,12 @@ void setup()
   //Initialize OSC communication
   oscP5 = new OscP5(this, 12000); //listen for OSC messages on port 12000 (Wekinator default)
   dest = new NetAddress("127.0.0.1",6449); //send messages back to Wekinator on port 6448, localhost (this machine) (default)
-  file[0] = new SoundFile(this, "rain.mp3");
-  file[0].loop();
-  file[1] = new SoundFile(this, "thunder.mp3");
-  file[1].loop();
-
+  //file[0] = new SoundFile(this, "23.mp3");
+  //file[0].loop();
+  for(int i = 0; i < 27; i++) {
+    file[i] = new SoundFile(this, ((i+1) + ".mp3"));
+    file[i].loop();
+  }
 }
 
 void draw() 
